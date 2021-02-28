@@ -54,33 +54,34 @@ android {
 }
 
 dependencies {
-    implementation(Libs.Kotlin.stdlib)
-    implementation(Libs.Coroutines.android)
-    implementation(Libs.Coroutines.core)
     implementation(Libs.material)
-
+    implementation(Libs.Accompanist.coil)
     implementation(Libs.AndroidX.coreKtx)
-    implementation(Libs.AndroidX.Activity.activityCompose)
-    implementation(Libs.AndroidX.Lifecycle.viewModelCompose)
-    implementation(Libs.AndroidX.ConstraintLayout.constraintLayoutCompose)
 
-    implementation(Libs.AndroidX.Compose.runtime)
+    implementation(Libs.AndroidX.Compose.activity)
+    implementation(Libs.AndroidX.Compose.animation)
     implementation(Libs.AndroidX.Compose.foundation)
+    implementation(Libs.AndroidX.Compose.iconsExtended)
     implementation(Libs.AndroidX.Compose.layout)
+    implementation(Libs.AndroidX.Compose.material)
+    implementation(Libs.AndroidX.Compose.navigation)
+    implementation(Libs.AndroidX.Compose.runtime)
+    implementation(Libs.AndroidX.Compose.tooling)
     implementation(Libs.AndroidX.Compose.ui)
     implementation(Libs.AndroidX.Compose.uiUtil)
-    implementation(Libs.AndroidX.Compose.material)
-    implementation(Libs.AndroidX.Compose.animation)
-    implementation(Libs.AndroidX.Compose.iconsExtended)
-    implementation(Libs.AndroidX.Compose.tooling)
+    implementation(Libs.AndroidX.Compose.viewModel)
+
+    implementation(Libs.Coroutines.android)
+    implementation(Libs.Coroutines.core)
+    implementation(Libs.Kotlin.stdlib)
 
     androidTestImplementation(Libs.junit)
+    androidTestImplementation(Libs.AndroidX.Compose.test)
+    androidTestImplementation(Libs.AndroidX.Compose.uiTest)
     androidTestImplementation(Libs.AndroidX.Test.core)
     androidTestImplementation(Libs.AndroidX.Test.espressoCore)
     androidTestImplementation(Libs.AndroidX.Test.rules)
     androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
-    androidTestImplementation(Libs.AndroidX.Compose.test)
-    androidTestImplementation(Libs.AndroidX.Compose.uiTest)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {

@@ -18,7 +18,7 @@ object Libs {
     }
 
     object Accompanist {
-        private const val version = "0.5.1"
+        private const val version = "0.6.0"
         const val coil = "dev.chrisbanes.accompanist:accompanist-coil:$version"
         const val insets = "dev.chrisbanes.accompanist:accompanist-insets:$version"
     }
@@ -32,35 +32,27 @@ object Libs {
 
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:1.5.0-beta01"
-        const val navigation = "androidx.navigation:navigation-compose:1.0.0-alpha07"
 
         object Compose {
-            const val version = "1.0.0-alpha12"
+            const val version = "1.0.0-beta01"
+            private const val activityVersion = "1.3.0-alpha03"
+            private const val navigationVersion = "1.0.0-alpha08"
+            private const val viewModelVersion = "1.0.0-alpha02"
 
+            const val activity = "androidx.activity:activity-compose:$activityVersion"
             const val animation = "androidx.compose.animation:animation:$version"
             const val foundation = "androidx.compose.foundation:foundation:$version"
-            const val layout = "androidx.compose.foundation:foundation-layout:$version"
             const val iconsExtended = "androidx.compose.material:material-icons-extended:$version"
+            const val layout = "androidx.compose.foundation:foundation-layout:$version"
             const val material = "androidx.compose.material:material:$version"
+            const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
             const val runtime = "androidx.compose.runtime:runtime:$version"
+            const val test = "androidx.compose.ui:ui-test:$version"
             const val tooling = "androidx.compose.ui:ui-tooling:$version"
             const val ui = "androidx.compose.ui:ui:$version"
-            const val uiUtil = "androidx.compose.ui:ui-util:$version"
-            const val test = "androidx.compose.ui:ui-test:$version"
             const val uiTest = "androidx.compose.ui:ui-test-junit4:$version"
-        }
-
-        object Activity {
-            const val activityCompose = "androidx.activity:activity-compose:1.3.0-alpha02"
-        }
-
-        object Lifecycle {
-            const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha01"
-        }
-
-        object ConstraintLayout {
-            const val constraintLayoutCompose =
-                "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha02"
+            const val uiUtil = "androidx.compose.ui:ui-util:$version"
+            const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:$viewModelVersion"
         }
 
         object Test {
