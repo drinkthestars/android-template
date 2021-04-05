@@ -41,7 +41,6 @@ android {
 
     buildFeatures {
         compose = true
-        viewBinding = true
     }
 
     composeOptions {
@@ -58,7 +57,7 @@ dependencies {
     implementation(Libs.Accompanist.coil)
     implementation(Libs.AndroidX.coreKtx)
 
-    implementation(Libs.AndroidX.Compose.activity)
+    implementation(Libs.AndroidX.Activity.activityCompose)
     implementation(Libs.AndroidX.Compose.animation)
     implementation(Libs.AndroidX.Compose.foundation)
     implementation(Libs.AndroidX.Compose.iconsExtended)
@@ -69,7 +68,7 @@ dependencies {
     implementation(Libs.AndroidX.Compose.tooling)
     implementation(Libs.AndroidX.Compose.ui)
     implementation(Libs.AndroidX.Compose.uiUtil)
-    implementation(Libs.AndroidX.Compose.viewModel)
+    implementation(Libs.AndroidX.Lifecycle.viewModelCompose)
 
     implementation(Libs.Coroutines.android)
     implementation(Libs.Coroutines.core)
