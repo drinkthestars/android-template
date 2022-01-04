@@ -1,5 +1,6 @@
 package com.goofy.goober.androidtemplate.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,21 +23,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.coil.CoilImage
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.rememberImagePainter
 
 @Composable
-fun TemplateApp() {
-    Surface(modifier = Modifier.fillMaxSize()) {
-        TemplateContent()
+fun TemplateApp(
+    templateData: String,
+    modifier: Modifier = Modifier
+) {
+    Surface(modifier = modifier.fillMaxSize()) {
+        TemplateContent(templateData)
     }
 }
 
+@OptIn(ExperimentalCoilApi::class)
 @Composable
-private fun TemplateContent() {
+private fun TemplateContent(
+    templateData: String,
+    modifier: Modifier = Modifier
+) {
     var clickCount by remember { mutableStateOf(0) }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -49,11 +58,15 @@ private fun TemplateContent() {
                 .clip(RoundedCornerShape(4.dp))
                 .clickable { clickCount++ }
         ) {
-            CoilImage(
+            Image(
                 contentScale = ContentScale.FillWidth,
-                data = "https://i.imgur.com/MVmKTub.jpeg",
-                contentDescription = "Fluffy puppy",
-                fadeIn = true
+                painter = rememberImagePainter(
+                    data = templateData,
+                    builder = {
+                        crossfade(true)
+                    }
+                ),
+                contentDescription = "Fluffy puppy"
             )
         }
     }

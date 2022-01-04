@@ -2,19 +2,20 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
-    compileSdkVersion(AppConfig.compileSdk)
-    buildToolsVersion(AppConfig.buildToolsVersion)
+    compileSdk = AppConfig.compileSdk
+    buildToolsVersion = AppConfig.buildToolsVersion
 
     defaultConfig {
         applicationId = AppConfig.applicationId
-        minSdkVersion(AppConfig.minSdk)
-        targetSdkVersion(AppConfig.targetSdk)
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
-
         testInstrumentationRunner = AppConfig.androidTestInstrumentation
     }
 
@@ -54,7 +55,6 @@ android {
 
 dependencies {
     implementation(Libs.material)
-    implementation(Libs.Accompanist.coil)
     implementation(Libs.AndroidX.coreKtx)
 
     implementation(Libs.AndroidX.Activity.activityCompose)
@@ -63,16 +63,19 @@ dependencies {
     implementation(Libs.AndroidX.Compose.iconsExtended)
     implementation(Libs.AndroidX.Compose.layout)
     implementation(Libs.AndroidX.Compose.material)
-    implementation(Libs.AndroidX.Compose.navigation)
     implementation(Libs.AndroidX.Compose.runtime)
     implementation(Libs.AndroidX.Compose.tooling)
     implementation(Libs.AndroidX.Compose.ui)
     implementation(Libs.AndroidX.Compose.uiUtil)
+    implementation(Libs.Hilt.android)
     implementation(Libs.AndroidX.Lifecycle.viewModelCompose)
 
+    implementation(Libs.Coil.compose)
     implementation(Libs.Coroutines.android)
     implementation(Libs.Coroutines.core)
     implementation(Libs.Kotlin.stdlib)
+
+    kapt(Libs.Hilt.kaptCompiler)
 
     androidTestImplementation(Libs.junit)
     androidTestImplementation(Libs.AndroidX.Compose.test)

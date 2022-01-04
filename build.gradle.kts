@@ -1,11 +1,13 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
     dependencies {
         classpath(Project.agp)
         classpath(Project.Kotlin.gradlePlugin)
+        classpath(Libs.Hilt.gradlePlugin)
     }
 }
 
