@@ -1,10 +1,10 @@
 object Project {
-    private const val agpVersion = "7.1.0-beta05"
+    private const val agpVersion = "7.2.0-beta02"
     const val jvmTarget = "1.8"
     const val agp = "com.android.tools.build:gradle:$agpVersion"
 
     object Kotlin {
-        const val version = "1.6.0"
+        const val version = "1.6.10"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
     }
 }
@@ -18,14 +18,14 @@ object Libs {
     }
 
     object Accompanist {
-        private const val version = "0.22.0-rc"
+        private const val version = "0.24.2-alpha"
         const val insets = "com.google.accompanist:accompanist-insets:$version"
         const val systemUiController =
             "com.google.accompanist:accompanist-systemuicontroller:$version"
     }
 
     object Coil {
-        private const val version = "1.3.1"
+        private const val version = "1.4.0"
         const val compose = "io.coil-kt:coil-compose:$version"
     }
 
@@ -44,7 +44,7 @@ object Libs {
         }
 
         object Compose {
-            const val version = "1.1.0-rc01"
+            const val version = "1.2.0-alpha03"
 
             const val animation = "androidx.compose.animation:animation:$version"
             const val foundation = "androidx.compose.foundation:foundation:$version"
@@ -60,17 +60,17 @@ object Libs {
         }
 
         object Hilt {
-            private const val version = "1.0.0-rc01"
+            private const val version = "1.0.0"
             const val navigationCompose = "androidx.hilt:hilt-navigation-compose:$"
         }
 
         object Lifecycle {
             const val viewModelCompose =
-                "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0"
+                "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha02"
         }
 
         object Navigation {
-            private const val version = "2.4.0-rc01"
+            private const val version = "2.5.0-alpha02"
             const val uiKtx = "androidx.navigation:navigation-ui-ktx:$version"
             const val compose = "androidx.navigation:navigation-compose:$version"
         }
