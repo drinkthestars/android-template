@@ -22,9 +22,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 
 @Composable
 fun TemplateApp(
@@ -36,7 +37,6 @@ fun TemplateApp(
     }
 }
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 private fun TemplateContent(
     templateData: String,
@@ -60,11 +60,9 @@ private fun TemplateContent(
         ) {
             Image(
                 contentScale = ContentScale.FillWidth,
-                painter = rememberImagePainter(
-                    data = templateData,
-                    builder = {
-                        crossfade(true)
-                    }
+                painter = rememberAsyncImagePainter(
+                    model = ImageRequest.Builder(LocalContext.current).data(templateData)
+                        .apply { crossfade(true) }.build()
                 ),
                 contentDescription = "Fluffy puppy"
             )

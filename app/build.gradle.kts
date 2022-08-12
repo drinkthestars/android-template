@@ -45,7 +45,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.version
+        kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.compilerVersion
     }
 
     android.sourceSets.all {
@@ -76,21 +76,13 @@ dependencies {
     implementation(Libs.Kotlin.stdlib)
 
     kapt(Libs.Hilt.kaptCompiler)
-
-    androidTestImplementation(Libs.junit)
-    androidTestImplementation(Libs.AndroidX.Compose.test)
-    androidTestImplementation(Libs.AndroidX.Compose.uiTest)
-    androidTestImplementation(Libs.AndroidX.Test.core)
-    androidTestImplementation(Libs.AndroidX.Test.espressoCore)
-    androidTestImplementation(Libs.AndroidX.Test.rules)
-    androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
         jvmTarget = Project.jvmTarget
         allWarningsAsErrors = true
-        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.Experimental"
+        freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn"
+        freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.Experimental"
     }
 }

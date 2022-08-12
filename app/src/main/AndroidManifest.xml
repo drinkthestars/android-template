@@ -13,7 +13,8 @@
         <activity
             android:name=".ui.TemplateActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.AndroidTemplate.NoActionBar">
+            android:theme="@style/Theme.AndroidTemplate.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
