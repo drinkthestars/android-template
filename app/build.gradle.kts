@@ -1,30 +1,30 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kapt)
 }
 
 android {
-    compileSdk = AppConfig.compileSdk
-    buildToolsVersion = AppConfig.buildToolsVersion
+    compileSdk = libs.versions.compileSdk.get().toInt()
+    buildToolsVersion = libs.versions.build.tools.get()
+    namespace = "com.goofy.goober.androidtemplate"
 
     defaultConfig {
-        applicationId = AppConfig.applicationId
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
-        testInstrumentationRunner = AppConfig.androidTestInstrumentation
+        applicationId = "com.goofy.goober.androidtemplate"
+        minSdk = 24
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile(AppConfig.proguardFile),
-                AppConfig.proguardConsumerRules
+                getDefaultProguardFile("proguard-android.txt"),
+                "consumer-rules.pro"
             )
         }
     }
@@ -45,7 +45,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.compilerVersion
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
 
     android.sourceSets.all {
@@ -54,34 +54,19 @@ android {
 }
 
 dependencies {
-    implementation(Libs.material)
-    implementation(Libs.AndroidX.coreKtx)
+    implementation(libs.bundles.androidx)
+    implementation(libs.bundles.coil)
+    implementation(libs.bundles.compose)
+    implementation(libs.bundles.hilt)
+    implementation(libs.bundles.kotlin)
+    implementation(libs.bundles.google)
 
-    implementation(Libs.AndroidX.Activity.activityCompose)
-    implementation(Libs.AndroidX.Compose.animation)
-    implementation(Libs.AndroidX.Compose.foundation)
-    implementation(Libs.AndroidX.Compose.iconsExtended)
-    implementation(Libs.AndroidX.Compose.layout)
-    implementation(Libs.AndroidX.Compose.material)
-    implementation(Libs.AndroidX.Compose.runtime)
-    implementation(Libs.AndroidX.Compose.tooling)
-    implementation(Libs.AndroidX.Compose.ui)
-    implementation(Libs.AndroidX.Compose.uiUtil)
-    implementation(Libs.Hilt.android)
-    implementation(Libs.AndroidX.Lifecycle.viewModelCompose)
-
-    implementation(Libs.Coil.compose)
-    implementation(Libs.Coroutines.android)
-    implementation(Libs.Coroutines.core)
-    implementation(Libs.Kotlin.stdlib)
-
-    kapt(Libs.Hilt.kaptCompiler)
+    kapt(libs.hilt.compiler)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
-        jvmTarget = Project.jvmTarget
-        allWarningsAsErrors = true
+        jvmTarget = "1.8"
         freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn"
         freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.Experimental"
     }
