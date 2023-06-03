@@ -1,15 +1,7 @@
-plugins {
-    alias(libs.plugins.android.application).apply(false)
-    alias(libs.plugins.kotlin.android).apply(false)
-    alias(libs.plugins.hilt.android).apply(false)
-    alias(libs.plugins.kapt).apply(false)
-}
-
 buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath(libs.android.gradle.plugin)
@@ -21,7 +13,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
